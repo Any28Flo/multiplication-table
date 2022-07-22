@@ -1,17 +1,39 @@
-const {writeFileSync} = require('fs');
+const { writeFileSync } = require("fs")
+const yargs = require("yargs/yargs")
+const { hideBin } = require("yargs/helpers")
+const argv = yargs(hideBin(process.argv)).argv
 
-const tablaMultiplicar = async(base) =>{
+// const { hideBin } = require('yargs/helpers');
+// const argv = yargs(hideBin(process.argv)).argv;
 
-    let str = '';
-    for(let i = 0 ; i <= 10; i++){
-        str += `${i} * ${base} = ${i * base} /n`;
-
+const tablaMultiplicar = async (base, listar) => {
+  let str = ` TABLA MULTIPLICAR ${base} \n
+    * * * * * \n`
+  for (let i = 1; i <= 10; i++) {
+    str += `${i} * ${base} = ${i * base} \n`
+  }
+  try {
+    writeFileSync(`${base}-mul.txt`, str)
+    if (listar) {
+      console.log(str)
     }
-    try {
-        writeFileSync(`${base}-mul.txt`, str);
-        return 'File created successfully'
-    } catch (error) {
-        throw error
-    }
+    return "File created successfully"
+  } catch (error) {
+    throw error
+  }
 }
-module.exports ={ tablaMultiplicar};
+const tablaMultiplicarParams = async () => {
+  const { base, limite } = argv
+
+  let str = ""
+  for (let i = 0; i <= 10; i++) {
+    str += `${i} * ${base} = ${i * base} /n`
+  }
+  try {
+    writeFileSync(`${base}-mul.txt`, str)
+    return "File created successfully"
+  } catch (error) {
+    throw error
+  }
+}
+module.exports = { tablaMultiplicar, tablaMultiplicarParams }
