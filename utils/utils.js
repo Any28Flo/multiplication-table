@@ -1,10 +1,8 @@
 const { writeFileSync } = require("fs")
+const colors = require("colors")
 const yargs = require("yargs/yargs")
 const { hideBin } = require("yargs/helpers")
 const argv = yargs(hideBin(process.argv)).argv
-
-// const { hideBin } = require('yargs/helpers');
-// const argv = yargs(hideBin(process.argv)).argv;
 
 const tablaMultiplicar = async (base, listar) => {
   let str = ` TABLA MULTIPLICAR ${base} \n
@@ -15,7 +13,7 @@ const tablaMultiplicar = async (base, listar) => {
   try {
     writeFileSync(`${base}-mul.txt`, str)
     if (listar) {
-      console.log(str)
+      console.log(str.green)
     }
     return "File created successfully"
   } catch (error) {

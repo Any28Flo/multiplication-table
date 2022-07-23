@@ -1,9 +1,13 @@
 const { tablaMultiplicar } = require("./utils/utils")
+
 const argv = require("./config/yargs")
 
-tablaMultiplicar(argv.b, argv.l)
+//Require sencillo
+require("colors")
+
+tablaMultiplicar(argv.b, argv.i)
   .then((resultado) => {
-    console.log(resultado)
+    console.log(resultado.rainbow)
   })
   .catch((error) => {
     console.log(error)
