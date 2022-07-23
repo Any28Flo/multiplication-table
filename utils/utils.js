@@ -11,7 +11,7 @@ const tablaMultiplicar = async (base, limite, imprimir) => {
     str += `${i} * ${base} = ${i * base} \n`
   }
   try {
-    writeFileSync(`${base}-mul.txt`, str)
+    writeFileSync(`./output/${base}-mul.txt`, str)
     if (imprimir) {
       console.log(str.green)
     }
