@@ -4,15 +4,15 @@ const yargs = require("yargs/yargs")
 const { hideBin } = require("yargs/helpers")
 const argv = yargs(hideBin(process.argv)).argv
 
-const tablaMultiplicar = async (base, listar) => {
+const tablaMultiplicar = async (base, limite, imprimir) => {
   let str = ` TABLA MULTIPLICAR ${base} \n
     * * * * * \n`
-  for (let i = 1; i <= 10; i++) {
+  for (let i = 1; i <= limite; i++) {
     str += `${i} * ${base} = ${i * base} \n`
   }
   try {
     writeFileSync(`${base}-mul.txt`, str)
-    if (listar) {
+    if (imprimir) {
       console.log(str.green)
     }
     return "File created successfully"
