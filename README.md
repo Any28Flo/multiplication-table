@@ -17,18 +17,18 @@ It's CMD aplication wrote in NODE
 
 2. Run the app in the console
 
-    You could pass diferent parameters by console
-    -b : Number the base number
-    -l : Limit
-    -i : print in console
+  ```bash
+  OPTIONS:
+   
+   -b : Number the base number [number]
+   -l : Limit   [number]
+   -i : print in console [boolean]
+   --hep : Show help
 
+   ```
+    
    ```bash
    $ node app -b:12 -l:10 -i
-   ```
-
-2. For help
-   ```bash
-   $ node app --help
    ```
 
 You will also see any errors in the console.
